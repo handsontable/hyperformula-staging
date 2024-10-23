@@ -1,110 +1,47 @@
-<br>
-<p align="center">
-  <a href="https://hyperformula.handsontable.com/">
-    <img src="https://raw.githubusercontent.com/handsontable/hyperformula/master/github-hf-logo-blue.svg" width="350" height="71" alt="HyperFormula - A headless spreadsheet, a parser and evaluator of Excel formulas"/>
-  </a>
-</p>
+# hyperformula-staging
 
-<p align="center">
-  <strong>An open-source headless spreadsheet for business web apps</strong>
-</p>
+#### Repository required to deploy HF documentation to staging env (GH pages).
 
-<p align="center">
-  <a href="https://npmjs.com/package/hyperformula"><img src="https://img.shields.io/npm/dt/hyperformula.svg" alt="npm total downloads"></a>
-  <a href="https://npmjs.com/package/hyperformula"><img src="https://img.shields.io/npm/dm/hyperformula.svg" alt="npm monthly downloads"></a>
-  <a href="https://github.com/handsontable/hyperformula/graphs/contributors"><img src="https://img.shields.io/github/contributors/handsontable/hyperformula" alt="GitHub contributors"></a>
-  <a href="https://snyk.io/test/github/handsontable/hyperformula?targetFile=package.json"><img src="https://snyk.io/test/github/handsontable/hyperformula/badge.svg?targetFile=package.json" alt="Known Vulnerabilities"></a>
-  <br>
-  <a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fhandsontable%2Fhyperformula?ref=badge_shield"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhandsontable%2Fhyperformula.svg?type=shield" alt="FOSSA Status"></a>
-  <a href="https://github.com/handsontable/hyperformula/actions?query=workflow%3Abuild+branch%3Amaster"><img src="https://img.shields.io/github/actions/workflow/status/handsontable/hyperformula/build.yml?branch=master" alt="GitHub Workflow Status"></a>
-  <a href="https://codecov.io/gh/handsontable/hyperformula"><img src="https://codecov.io/gh/handsontable/hyperformula/branch/master/graph/badge.svg?token=5k9ZQv8azO" alt="codecov"></a>
-</p>
+## Staging env
 
----
+### URL
 
-HyperFormula is a headless spreadsheet built in TypeScript, serving as both a parser and evaluator of spreadsheet formulas. It can be integrated into your browser or utilized as a service with Node.js as your back-end technology.
+https://handsontable.github.io/hyperformula-staging/
 
-## What HyperFormula can be used for?
-HyperFormula doesn't assume any existing user interface, making it a general-purpose library that can be used in various business applications. Here are some examples:
+### SEO
 
-- Custom spreadsheet-like app
-- Business logic builder
-- Forms and form builder
-- Educational app
-- Online calculator
+The page is protected from being indexed by the search engine bots by:
+- https://handsontable.github.io/robots.txt
+- `<meta name="robots" content="noindex, nofollow">` in https://handsontable.github.io/hyperformula-staging/index.html file
 
-## Features
+GH [does not support](https://github.com/orgs/community/discussions/60689) restricting access to it using a password
 
-- [Function syntax compatible with Microsoft Excel](https://hyperformula.handsontable.com/guide/compatibility-with-microsoft-excel.html) and [Google Sheets](https://hyperformula.handsontable.com/guide/compatibility-with-google-sheets.html)
-- High-speed parsing and evaluation of spreadsheet formulas
-- [A library of ~400 built-in functions](https://hyperformula.handsontable.com/guide/built-in-functions.html)
-- [Support for custom functions](https://hyperformula.handsontable.com/guide/custom-functions.html)
-- [Support for Node.js](https://hyperformula.handsontable.com/guide/server-side-installation.html#install-with-npm-or-yarn)
-- [Support for undo/redo](https://hyperformula.handsontable.com/guide/undo-redo.html)
-- [Support for CRUD operations](https://hyperformula.handsontable.com/guide/basic-operations.html)
-- [Support for clipboard](https://hyperformula.handsontable.com/guide/clipboard-operations.html)
-- [Support for named expressions](https://hyperformula.handsontable.com/guide/named-expressions.html)
-- [Support for data sorting](https://hyperformula.handsontable.com/guide/sorting-data.html)
-- [Support for formula localization with 17 built-in languages](https://hyperformula.handsontable.com/guide/i18n-features.html)
-- GPLv3 license
-- Maintained by the team that stands behind the [Handsontable](https://handsontable.com/) data grid
+## How to deploy documentation to staging
 
-## Documentation
+If you want to deploy the documentation from `feature-branch` (in the `hyperformula` repo), follow these steps:
 
-- [Client-side installation](https://hyperformula.handsontable.com/guide/client-side-installation.html)
-- [Server-side installation](https://hyperformula.handsontable.com/guide/server-side-installation.html)
-- [Basic usage](https://hyperformula.handsontable.com/guide/basic-usage.html)
-- [Configuration options](https://hyperformula.handsontable.com/guide/configuration-options.html)
-- [List of built-in functions](https://hyperformula.handsontable.com/guide/built-in-functions.html)
-- [API Reference](https://hyperformula.handsontable.com/api/)
+1. Create a pull request **across forks**:
+    - to [base repo] `hyperformula-staging`, [base branch] `hyperformula`
+    - from [head repo] `hyperformula`, [head branch] `feature-branch`
+    - this link might help: https://github.com/handsontable/hyperformula-staging/compare/hyperformula...handsontable:hyperformula:feature-branch
+2. Make sure it does not overwrite the key code fragments (see below)
+3. Merge the PR
+4. Wait for `Publish` and `pages-build-deployment` workflows to finish
+5. Visit https://handsontable.github.io/hyperformula-staging/
 
-## Integrations
+## Key code fragments
 
-- [Integration with React](https://hyperformula.handsontable.com/guide/integration-with-react.html#demo)
-- [Integration with Angular](https://hyperformula.handsontable.com/guide/integration-with-angular.html#demo)
-- [Integration with Vue](https://hyperformula.handsontable.com/guide/integration-with-vue.html#demo)
-- [Integration with Svelte](https://hyperformula.handsontable.com/guide/integration-with-svelte.html#demo)
+In `hyperformula` branch there are a few code fragments that are essential for correct deployment of the staging env. They must not be overwritten.
 
-## Installation and usage
 
-Install the library from [npm](https://www.npmjs.com/package/hyperformula) like so:
+1. File [.github/workflows/publish.yml](https://github.com/handsontable/hyperformula-staging/blob/hyperformula/.github/workflows/publish.yml), especially the specification of the branch that triggers the workflow:
 
-```bash
-npm install hyperformula
-```
+https://github.com/handsontable/hyperformula-staging/blob/28116bfaf372b95e7f6149d9201f8c074a04a55f/.github/workflows/publish.yml#L6
 
-Once installed, you can use it to develop applications tailored to your specific business needs. Here, we've used it to craft a form that calculates mortgage payments using the `PMT` formula.
+2. Spacification of the base URL in the [docs/.vuepress/config.js](https://github.com/handsontable/hyperformula-staging/blob/hyperformula/docs/.vuepress/config.js) file:
 
-```js
-import { HyperFormula } from 'hyperformula';
+https://github.com/handsontable/hyperformula-staging/blob/28116bfaf372b95e7f6149d9201f8c074a04a55f/docs/.vuepress/config.js#L65
 
-// Create a HyperFormula instance
-const hf = HyperFormula.buildEmpty({ licenseKey: 'gpl-v3' });
+3. `<meta name="robots">` tag in the [docs/.vuepress/config.js](https://github.com/handsontable/hyperformula-staging/blob/hyperformula/docs/.vuepress/config.js) file:
 
-// Add an empty sheet
-const sheetName = hf.addSheet('Mortgage Calculator');
-const sheetId = hf.getSheetId(sheetName);
-
-// Enter the mortgage parameters
-hf.addNamedExpression('AnnualInterestRate', '8%');
-hf.addNamedExpression('NumberOfMonths', 360);
-hf.addNamedExpression('LoanAmount', 800000);
-
-// Use the PMT function to calculate the monthly payment
-hf.setCellContents({ sheet: sheetId, row: 0, col: 0 }, [['Monthly Payment', '=PMT(AnnualInterestRate/12, NumberOfMonths, -LoanAmount)']]);
-
-// Display the result
-console.log(`${hf.getCellValue({ sheet: sheetId, row: 0, col: 0 })}: ${hf.getCellValue({ sheet: sheetId, row: 0, col: 1 })}`);
-```
-
-[Run this code in CodeSandbox](https://codesandbox.io/p/sandbox/github/handsontable/hyperformula-demos/tree/2.7.x/mortgage-calculator)
-
-## Contributing
-
-Contributions are welcome, but before you make them, please read the [Contributing Guide](https://hyperformula.handsontable.com/guide/contributing.html) and accept the [Contributor License Agreement](https://goo.gl/forms/yuutGuN0RjsikVpM2).
-
-## License
-
-HyperFormula is available under two different licenses: GPLv3 and proprietary. The proprietary license can be purchased by [contacting our team](https://handsontable.com/get-a-quote) at Handsontable.
-
-Copyright (c) Handsoncode
+https://github.com/handsontable/hyperformula-staging/blob/28116bfaf372b95e7f6149d9201f8c074a04a55f/docs/.vuepress/config.js#L15:L16
