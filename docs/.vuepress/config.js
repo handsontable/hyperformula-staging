@@ -60,7 +60,7 @@ module.exports = {
     ['link', { rel: 'manifest', href: '/favicon/site.webmanifest' }],
     ['link', { rel: 'mask-icon', color: '#ffffff', href: '/favicon/safari-pinned-tab.svg' }],
   ],
-  base: '/',
+  base: '/hyperformula-staging/',
   plugins: [
     searchBoxPlugin,
     ['container', examples()],
