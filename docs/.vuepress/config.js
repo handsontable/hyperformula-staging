@@ -12,12 +12,10 @@ module.exports = {
   title: 'HyperFormula (v' + HyperFormula.version + ')',
   description: 'HyperFormula is an open-source, high-performance calculation engine for spreadsheets and web applications.',
   head: [
-    // Robots for staging: noindex, nofollow
-    ['meta', {name: 'robots', content: 'noindex, nofollow'}],
     // Import HF (required for the examples)
     [ 'script', { src: 'https://cdn.jsdelivr.net/npm/hyperformula/dist/hyperformula.full.min.js' } ],
-    [ 'script', { src: 'https://cdn.jsdelivr.net/npm/hyperformula@2.7.1/dist/languages/enUS.js' } ],
-    [ 'script', { src: 'https://cdn.jsdelivr.net/npm/hyperformula@2.7.1/dist/languages/frFR.js' } ],
+    [ 'script', { src: 'https://cdn.jsdelivr.net/npm/hyperformula/dist/languages/enUS.js' } ],
+    [ 'script', { src: 'https://cdn.jsdelivr.net/npm/hyperformula/dist/languages/frFR.js' } ],
     // Import moment (required for the examples)
     [ 'script', { src: 'https://cdn.jsdelivr.net/npm/moment/moment.min.js' } ],
     // Google Tag Manager, an extra element within the `ssr.html` file.
@@ -175,6 +173,7 @@ module.exports = {
           title: 'Overview',
           collapsable: false,
           children: [
+            ['/guide/quality', 'Quality'],
             ['/guide/supported-browsers', 'Supported browsers'],
             ['/guide/dependencies', 'Dependencies'],
             ['/guide/licensing', 'Licensing'],
@@ -267,7 +266,8 @@ module.exports = {
           children: [
             ['/guide/release-notes', 'Release notes'],
             ['/guide/migration-from-0.6-to-1.0', 'Migrating from 0.6 to 1.0'],
-            ['/guide/migration-from-1.0-to-2.0', 'Migrating from 1.x to 2.0'],
+            ['/guide/migration-from-1.x-to-2.0', 'Migrating from 1.x to 2.0'],
+            ['/guide/migration-from-2.x-to-3.0', 'Migrating from 2.x to 3.0'],
           ]
         },
         {

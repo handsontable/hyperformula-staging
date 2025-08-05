@@ -4,7 +4,7 @@ import frFR from 'hyperformula/es/i18n/languages/frFR';
 
 console.log(
   `%c Using HyperFormula ${HyperFormula.version}`,
-  'color: blue; font-weight: bold'
+  'color: blue; font-weight: bold',
 );
 /* end:skip-in-compilation */
 
@@ -30,7 +30,9 @@ const tableData = [
 ];
 
 // register language
-HyperFormula.registerLanguage('frFR', frFR);
+if (!HyperFormula.getRegisteredLanguagesCodes().includes('frFR')) {
+  HyperFormula.registerLanguage('frFR', frFR);
+}
 
 // Create an empty HyperFormula instance.
 const hf = HyperFormula.buildEmpty({
@@ -49,7 +51,7 @@ hf.setCellContents(
     col: 0,
     sheet: sheetId,
   },
-  tableData
+  tableData,
 );
 
 // Add named expressions for the "TOTAL" row.

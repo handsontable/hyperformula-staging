@@ -3,10 +3,13 @@ import HyperFormula from 'hyperformula';
 
 console.log(
   `%c Using HyperFormula ${HyperFormula.version}`,
-  'color: blue; font-weight: bold'
+  'color: blue; font-weight: bold',
 );
 
 /* end:skip-in-compilation */
+/* start:skip-in-sandbox */
+const NothingToPasteError = HyperFormula.NothingToPasteError;
+/* end:skip-in-sandbox */
 /**
  * Initial table data.
  */
@@ -35,7 +38,7 @@ function reinitializeData() {
       col: 0,
       sheet: sheetId,
     },
-    tableData
+    tableData,
   );
 }
 
@@ -53,7 +56,6 @@ function bindEvents() {
   });
   pasteButton.addEventListener('click', () => {
     paste();
-    updateCopyInfo('Pasted into the first row');
   });
   resetButton.addEventListener('click', () => {
     reinitializeData();
@@ -76,8 +78,17 @@ function copy() {
  * Paste the HF clipboard into the first row.
  */
 function paste() {
-  hf.paste({ sheet: 0, col: 0, row: 0 });
-  renderTable();
+  try {
+    hf.paste({ sheet: 0, col: 0, row: 0 });
+    updateCopyInfo('Pasted into the first row');
+    renderTable();
+  } catch (error) {
+    if (error instanceof NothingToPasteError) {
+      updateCopyInfo('There is nothing to paste');
+    } else {
+      throw error;
+    }
+  }
 }
 
 const ANIMATION_ENABLED = true;

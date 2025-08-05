@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2024 Handsoncode. All rights reserved.
+ * Copyright (c) 2025 Handsoncode. All rights reserved.
  */
 
 import {SimpleCellAddress} from '../../Cell'
@@ -8,7 +8,7 @@ import {RawCellContent} from '../../CellContentParser'
 import {NoSheetWithIdError} from '../../errors'
 import {EmptyValue, InterpreterValue} from '../../interpreter/InterpreterValue'
 import {Maybe} from '../../Maybe'
-import {Sheet, SheetBoundaries} from '../../Sheet'
+import {SheetBoundaries} from '../../Sheet'
 import {ColumnsSpan, RowsSpan} from '../../Span'
 import {ArrayVertex, ValueCellVertex} from '../index'
 import {CellVertex} from '../Vertex'
