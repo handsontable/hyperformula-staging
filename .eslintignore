@@ -11,11 +11,10 @@ src/interpreter/plugin/3rdparty
 *.config.js
 karma.*
 doc
-test/unit/_setupFiles/*.js
+test/_setupFiles/*.js
 
 # Auto-generated directories
 commonjs
-coverage
 dist
 doc
 es

@@ -7,11 +7,7 @@ setup: ## Setup project
 compile: ## Compile to javascript
 	@npm run compile
 
-test: ## Run tests
-	@npm run test
-
-unit: ## Run unit tests
-	@npm run test:unit
+check: typecheck lint ## Check whether code is working correctly (types + lint)
 
 test-ci: ## Separate test configuration for CI environment
 	@npm run test
@@ -25,9 +21,6 @@ lint: ## Show linting errors
 
 lint-fix: ## Fix linting errors
 	@npm run lint:fix
-
-coverage: ## Run tests and show coverage
-	@npm run test:coverage
 
 doc: ## Generate documentation
 	@npm run typedoc:build
@@ -65,6 +58,6 @@ verify-production-licenses:
 help: ## Show all make commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: test coverage benchmark doc servedoc
+.PHONY: test doc servedoc
 
 .DEFAULT_GOAL := help

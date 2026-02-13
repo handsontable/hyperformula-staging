@@ -1,7 +1,6 @@
 .idea/
 .vscode
 /commonjs/
-/coverage/
 /dist/
 /doc/
 /docs/api/
