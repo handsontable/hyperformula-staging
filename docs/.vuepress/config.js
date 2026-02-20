@@ -11,7 +11,7 @@ const searchPattern = new RegExp('^/api', 'i');
 module.exports = {
   title: 'HyperFormula (v' + HyperFormula.version + ')',
   description: 'HyperFormula is an open-source, high-performance calculation engine for spreadsheets and web applications.',
-  globalUIComponents: ['HiringBanner'],
+  globalUIComponents: [],
   head: [
     // Robots for staging: noindex, nofollow 
     ['meta', {name: 'robots', content: 'noindex, nofollow'}], 
